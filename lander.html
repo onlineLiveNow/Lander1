@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- DNS prefetch for external domains -->
+<link rel="dns-prefetch" href="https://github.com">
+<link rel="dns-prefetch" href="https://raw.githubusercontent.com">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+<link rel="icon" href="favicon.svg">
+<title>HelloPlays — Interactive Gaming Portal</title>
+<meta name="description" content="HelloPlays offers an immersive, responsive gaming experience with exciting gameplay and modern design.">
+<meta name="keywords" content="online games, gaming portal, browser games, interactive games, play games online, gaming platform">
+<meta name="author" content="HelloPlays">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="HelloPlays — Interactive Gaming Portal">
+<meta property="og:description" content="HelloPlays offers an immersive, responsive gaming experience with exciting gameplay and modern design.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HelloPlays">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HelloPlays — Interactive Gaming Portal">
+<meta name="twitter:description" content="HelloPlays offers an immersive, responsive gaming experience with exciting gameplay and modern design.">
+
+<!-- Preconnect for fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- CENTRALIZED CONFIG - Change images and title here only -->
+<script>
+window.IMAGE_CONFIG = {
+  MOBILE: 'https://raw.githubusercontent.com/bextussusa/images/main/playam/mobPlayam.png',
+  DESKTOP: 'https://raw.githubusercontent.com/bextussusa/images/main/playam/playam.png'
+};
+
+// CENTRALIZED TITLE - Change title here (as array)
+window.SITE_TITLE = ['P', 'l', 'a', 'y', 'G', 'a', 'm', 'e', 's'];
+</script>
+
+<!-- PRELOAD popup.js with highest priority -->
+<link rel="preload" href="assets/js/popup.js" as="script" fetchpriority="high">
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    background: #0b1220;
+  }
+
+  /* Navbar */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(11, 18, 32, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    padding: 1rem 2rem;
+  }
+
+  .navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navbar-title {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.02em;
+    display: flex;
+  }
+
+  .navbar-title span {
+    display: inline-block;
+    animation: charFadeIn 0.5s ease forwards;
+    opacity: 0;
+  }
+
+  @keyframes charFadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    background: transparent;
+    border: none;
+    z-index: 1001;
+  }
+
+  .hamburger span {
+    width: 1.75rem;
+    height: 0.1875rem;
+    background: #e5e7eb;
+    transition: all 0.3s ease;
+    border-radius: 0.125rem;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(0.5rem, 0.5rem);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(0.5rem, -0.5rem);
+  }
+
+  /* Menu Overlay */
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 320px;
+    height: 100vh;
+    background: rgba(11, 18, 32, 0.98);
+    backdrop-filter: blur(12px);
+    z-index: 999;
+    padding: 5rem 2rem 2rem;
+    transition: right 0.3s ease;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+    border-left: 1px solid rgba(56, 189, 248, 0.3);
+  }
+
+  .menu-overlay.active {
+    right: 0;
+  }
+
+  .menu-overlay nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .menu-overlay a {
+    color: #e5e7eb;
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .menu-overlay a:hover {
+    background: rgba(56, 189, 248, 0.1);
+    color: #38bdf8;
+    border-bottom-color: rgba(56, 189, 248, 0.3);
+  }
+
+  /* Dark overlay behind menu */
+  .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .backdrop.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Hero section with background - Multiple breakpoints */
+  .hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0b1220;
+    margin-top: 0;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity 0.5s ease;
+  }
+
+  .hero.bg-loaded::before {
+    opacity: 1;
+  }
+
+  /* Extra small devices (phones, portrait, 320px - 480px) */
+  @media (max-width: 480px) {
+    .hero::before {
+      background-image: var(--mobile-bg);
+      background-position: center -4.0%;
+      background-size: cover;
+    }
+  }
+
+  /* Small devices (phones, landscape, 481px - 768px) */
+  @media (min-width: 481px) and (max-width: 768px) {
+    .hero::before {
+      background-image: var(--mobile-bg);
+      background-position: center -4.0%;
+      background-size: cover;
+    }
+  }
+
+  /* Medium devices (tablets, 769px - 1024px) */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .hero::before {
+      background-image: var(--desktop-bg);
+      background-position: center 2%;
+      background-size: cover;
+    }
+  }
+
+  /* Large devices (laptops, 1025px - 1440px) */
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    .hero::before {
+      background-image: var(--desktop-bg);
+      background-position: center 2%;
+      background-size: cover;
+    }
+  }
+
+  /* Extra large devices (desktops, 1441px - 1920px) */
+  @media (min-width: 1441px) and (max-width: 1920px) {
+    .hero::before {
+      background-image: var(--desktop-bg);
+      background-position: center 2%;
+      background-size: cover;
+    }
+  }
+
+  /* Ultra wide devices (2K, 4K, 1921px+) */
+  @media (min-width: 1921px) {
+    .hero::before {
+      background-image: var(--desktop-bg);
+      background-position: center 2%;
+      background-size: contain;
+      background-color: #0b1220;
+    }
+  }
+
+  /* Vertical scrolling disabled for mobile devices */
+  @media (max-width: 276px) and (max-height: 550px) {
+    .hero {
+      height: 100vh;
+      overflow: hidden;
+    }
+    body {
+      overflow: hidden;
+      height: 100vh;
+    }
+  }
+
+  @media (max-width: 480px) and (orientation: portrait) {
+    .hero {
+      height: 100vh;
+      overflow: hidden;
+    }
+    body {
+      overflow: hidden;
+      height: 100vh;
+    }
+  }
+
+  @media (max-height: 480px) and (orientation: landscape) {
+    .hero {
+      height: 100vh;
+      overflow: hidden;
+    }
+    body {
+      overflow: hidden;
+      height: 100vh;
+    }
+  }
+
+  /* Footer styles */
+  .footer {
+    background: #0b1220;
+    color: #e5e7eb;
+    border-top: 0.0625rem solid #1f2937;
+    padding: clamp(1rem, 3vw, 1.5rem) clamp(1rem, 4vw, 2rem);
+  }
+
+  .footer .container {
+    max-width: 75rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(0.75rem, 2vw, 1.5rem);
+    flex-wrap: wrap;
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+  }
+
+  .footer nav {
+    display: flex;
+    gap: clamp(0.75rem, 2vw, 1rem);
+    flex-wrap: wrap;
+  }
+
+  .footer a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+    transition: color 0.3s ease;
+  }
+
+  .footer a:hover {
+    color: #0ea5e9;
+  }
+
+  .badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: clamp(0.625rem, 1.5vw, 0.75rem);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .footer .container {
+      justify-content: center;
+      text-align: center;
+    }
+    .footer nav {
+      justify-content: center;
+    }
+  }
+</style>
+
+<!-- Apply CSS variables from config -->
+<script>
+(function() {
+  const config = window.IMAGE_CONFIG;
+  document.documentElement.style.setProperty('--mobile-bg', 'url(' + config.MOBILE + ')');
+  document.documentElement.style.setProperty('--desktop-bg', 'url(' + config.DESKTOP + ')');
+})();
+</script>
+
+<!-- Immediate execution script for fastest image loading -->
+<script>
+(function() {
+  const config = window.IMAGE_CONFIG;
+  const width = window.innerWidth;
+  let imageUrl;
+  
+  if (width <= 768) {
+    imageUrl = config.MOBILE;
+  } else {
+    imageUrl = config.DESKTOP;
+  }
+  
+  const img = new Image();
+  img.decoding = 'async';
+  img.fetchPriority = 'high';
+  
+  img.onload = function() {
+    window.__heroImageLoaded = true;
+  };
+  
+  img.onerror = function() {
+    window.__heroImageLoaded = true;
+  };
+  
+  img.src = imageUrl;
+})();
+</script>
+
+<!-- Dynamic preload injection -->
+<script>
+(function() {
+  const config = window.IMAGE_CONFIG;
+  
+  const preloadDesktop = document.createElement('link');
+  preloadDesktop.rel = 'preload';
+  preloadDesktop.as = 'image';
+  preloadDesktop.href = config.DESKTOP;
+  preloadDesktop.media = '(min-width: 1200px)';
+  preloadDesktop.fetchPriority = 'high';
+  document.head.appendChild(preloadDesktop);
+  
+  const preloadMobile = document.createElement('link');
+  preloadMobile.rel = 'preload';
+  preloadMobile.as = 'image';
+  preloadMobile.href = config.MOBILE;
+  preloadMobile.media = '(max-width: 768px)';
+  preloadMobile.fetchPriority = 'high';
+  document.head.appendChild(preloadMobile);
+})();
+</script>
+
+<!-- ✅ LOAD popup.js synchronously (removed async) -->
+<script src="assets/js/popup.js"></script>
+
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-title" id="navbarTitle"></div>
+    <button class="hamburger" id="hamburger" aria-label="Navigation Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Menu Overlay -->
+<div class="menu-overlay" id="menuOverlay">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="game.html">Start Playing</a>
+    <a href="leaderboard.html">Top Scores</a>
+    <a href="about.html">About Us</a>
+    <a href="blog.html">Gaming News</a>
+    <a href="faq.html">Help Center</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="contact.html">Get in Touch</a>
+  </nav>
+</div>
+
+<!-- Dark Backdrop -->
+<div class="backdrop" id="backdrop"></div>
+
+<!-- Hero Section -->
+<header class="hero" id="heroSection"></header>
+
+<footer class="footer">
+  <div class="container">
+    <div>© 2025 . All rights reserved.</div>
+    <div style="display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap;justify-content:center">
+      <span class="badge">Mobile Optimized • Age Verified</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Hamburger Menu Script -->
+<script>
+(function() {
+  const hamburger = document.getElementById('hamburger');
+  const menuOverlay = document.getElementById('menuOverlay');
+  const backdrop = document.getElementById('backdrop');
+  const menuLinks = menuOverlay.querySelectorAll('a');
+
+  function toggleMenu() {
+    hamburger.classList.toggle('active');
+    menuOverlay.classList.toggle('active');
+    backdrop.classList.toggle('active');
+    document.body.style.overflow = menuOverlay.classList.contains('active') ? 'hidden' : '';
+  }
+
+  hamburger.addEventListener('click', toggleMenu);
+  backdrop.addEventListener('click', toggleMenu);
+
+  menuLinks.forEach(link => {
+    link.addEventListener('click', toggleMenu);
+  });
+})();
+</script>
+
+<!-- Dynamic Title Rendering Script -->
+<script>
+(function() {
+  const navbarTitle = document.getElementById('navbarTitle');
+  const titleArray = window.SITE_TITLE;
+  
+  const titleHTML = titleArray.map((char, index) => {
+    return `<span style="animation-delay: ${index * 0.05}s">${char}</span>`;
+  }).join('');
+  
+  navbarTitle.innerHTML = titleHTML;
+})();
+</script>
+
+<!-- Background loading script -->
+<script>
+(function() {
+  const heroSection = document.getElementById('heroSection');
+  
+  function init() {
+    heroSection.classList.add('bg-loaded');
+  }
+  
+  if (window.__heroImageLoaded) {
+    init();
+  } else {
+    setTimeout(init, 500);
+  }
+})();
+</script>
+
+<!-- ✅ Call PopupLander with proper retry mechanism -->
+<script>
+(function() {
+  function triggerPopup() {
+    if (typeof window.PopupLander === 'function') {
+      console.log("✅ Calling PopupLander...");
+      window.PopupLander();
+    } else {
+      console.log("⏳ PopupLander not ready, retrying...");
+      setTimeout(triggerPopup, 50);
+    }
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', triggerPopup);
+  } else {
+    triggerPopup();
+  }
+})();
+</script>
+
+</body>
+</html>

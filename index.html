@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google" content="notranslate">
+
+<!-- SEO & Google Ads Meta Tags -->
+<title>HelloPlays Gaming: Play Multiplayer Games Online Free | Australia Gaming Platform</title>
+<meta name="description" content="Join Australia's #1 multiplayer gaming platform. Play 100+ free games with real players. No downloads, no sign-up required. Start playing instantly!">
+<meta name="keywords" content="multiplayer games online free Australia, play games online free, Australian gaming platform, free online games multiplayer, competitive gaming Australia">
+<meta name="robots" content="index, follow">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "HelloPlays Gaming",
+  "url": "https://HelloPlaysgaming.com"
+}
+</script>
+
+<!-- Preload popup.js for better performance -->
+<link rel="preload" href="assets/js/popup.js" as="script">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+
+<!-- Favicon & Logo -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+
+<style>
+/* All your existing CSS remains exactly the same... */
+/* CRITICAL CSS - Above the fold */
+:root {
+  --color-bg: #0A1128;
+  --color-primary: #3B82F6;
+  --color-secondary: #F59E0B;
+  --color-accent: #10B981;
+  --color-text: #FFFFFF;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Poppins', 'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { 
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Rest of your CSS remains exactly the same... */
+/* Logo & Header */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: rgba(10, 17, 40, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.logo-text {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #FFFFFF, #F59E0B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #10B981;
+  font-weight: 600;
+}
+
+.trust-badge::before {
+  content: '✓';
+  font-size: 16px;
+}
+
+/* Hero Section */
+.hero-section {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0A1128 0%, #1E293B 100%);
+  padding: 140px 20px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+}
+
+.hero-content {
+  max-width: 800px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #3B82F6, #1D4ED8);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  animation: pulse 2s infinite;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 5px 20px rgba(59, 130, 246, 0.3); }
+  50% { transform: scale(1.05); box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5); }
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  color: #E2E8F0;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Primary CTA */
+.primary-cta {
+  display: inline-block;
+  background: linear-gradient(135deg, #10B981, #059669);
+  color: white;
+  padding: 18px 48px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 40px rgba(16, 185, 129, 0.4);
+  border: none;
+  cursor: pointer;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.primary-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 50px rgba(16, 185, 129, 0.6);
+}
+
+.primary-cta::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.primary-cta:hover::after {
+  left: 100%;
+}
+
+.trust-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  text-align: center;
+}
+
+.trust-number {
+  font-size: 24px;
+  font-weight: 700;
+  color: #10B981;
+}
+
+.trust-label {
+  font-size: 14px;
+  color: #94A3B8;
+  margin-top: 4px;
+}
+
+/* Features Section */
+.features-section {
+  padding: 80px 20px;
+  background: #1E293B;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 50px;
+  color: white;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #3B82F6, #10B981);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: #3B82F6;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.feature-card:hover::before {
+  transform: scaleY(1);
+}
+
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.feature-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.feature-desc {
+  color: #CBD5E1;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Social Proof */
+.social-proof {
+  padding: 80px 20px;
+  background: #0A1128;
+  text-align: center;
+}
+
+.testimonial {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 30px;
+  border-radius: 16px;
+  border-left: 4px solid #F59E0B;
+  position: relative;
+}
+
+.testimonial::before {
+  content: '"';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 60px;
+  font-family: serif;
+  color: rgba(245, 158, 11, 0.2);
+}
+
+.testimonial-text {
+  font-size: 18px;
+  color: #E2E8F0;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-author {
+  font-weight: 600;
+  color: #10B981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.testimonial-author::before {
+  content: '⭐';
+}
+
+/* Final CTA */
+.final-cta-section {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #1E293B, #0A1128);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.final-cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+}
+
+.final-cta-title {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #3B82F6, #10B981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 1;
+}
+
+.final-cta-subtitle {
+  font-size: 18px;
+  color: #CBD5E1;
+  max-width: 500px;
+  margin: 0 auto 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Footer */
+.site-footer {
+  padding: 40px 20px;
+  background: #0F172A;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.disclaimer {
+  color: #94A3B8;
+  font-size: 12px;
+  text-align: center;
+  max-width: 600px;
+  margin: 20px auto;
+  line-height: 1.6;
+}
+
+.copyright {
+  color: #64748B;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .hero-title { font-size: 36px; }
+  .hero-subtitle { font-size: 18px; }
+  .primary-cta { padding: 16px 40px; font-size: 16px; }
+  .section-title { font-size: 28px; }
+  .trust-indicators { gap: 30px; }
+  .features-grid { grid-template-columns: 1fr; }
+  .final-cta-title { font-size: 32px; }
+  .logo-text { font-size: 20px; }
+}
+
+/* Performance Optimizations */
+img { max-width: 100%; height: auto; }
+a { text-decoration: none; }
+</style>
+</head>
+
+<body>
+<!-- Header with Logo -->
+<header class="site-header">
+  <div class="header-container">
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <span style="color: white;">S</span>
+      </div>
+      <div class="logo-text">HelloPlays</div>
+    </a>
+    <div class="trust-badge">Verified Australian Platform</div>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-content">
+    <div class="hero-badge">🎮 Australia's #1 Gaming Platform</div>
+    
+    <h1 class="hero-title">Play 100+ Multiplayer Games Free in Australia</h1>
+    
+    <p class="hero-subtitle">
+      Join 50,000+ Australian players. No sign-up needed. No downloads required. 
+      Start playing your favorite multiplayer games instantly in your browser.
+    </p>
+    
+    <a href="#play-now" class="primary-cta">
+      🎯 Start Playing Free Now
+    </a>
+    
+    <div class="trust-indicators">
+      <div class="trust-item">
+        <div class="trust-number">50K+</div>
+        <div class="trust-label">Active Players</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-number">100+</div>
+        <div class="trust-label">Free Games</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-number">4.9★</div>
+        <div class="trust-label">Rating</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-number">24/7</div>
+        <div class="trust-label">AU Support</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section">
+  <h2 class="section-title">Why Australian Gamers Choose HelloPlays</h2>
+  
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">⚡</div>
+      <h3 class="feature-title">Instant Play, No Download</h3>
+      <p class="feature-desc">Start playing immediately in your browser. No software to install, no waiting times.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="feature-icon">🎮</div>
+      <h3 class="feature-title">100+ Multiplayer Games</h3>
+      <p class="feature-desc">Battle Royale, Strategy, Action, Sports & more. Always adding new games weekly.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="feature-icon">🇦🇺</div>
+      <h3 class="feature-title">Australian Servers</h3>
+      <p class="feature-desc">Low-latency gaming on local servers for the smoothest multiplayer experience.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="feature-icon">👥</div>
+      <h3 class="feature-title">Real Australian Players</h3>
+      <p class="feature-desc">Match with real players from Sydney, Melbourne, Brisbane & across Australia.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="feature-icon">🔒</div>
+      <h3 class="feature-title">Safe & Secure</h3>
+      <p class="feature-desc">Your privacy is protected. No personal information required to start playing.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="feature-icon">📱</div>
+      <h3 class="feature-title">Mobile Friendly</h3>
+      <p class="feature-desc">Play on any device - desktop, tablet, or mobile. Your progress syncs automatically.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Social Proof -->
+<section class="social-proof">
+  <h2 class="section-title">What Australian Players Say</h2>
+  
+  <div class="testimonial">
+    <p class="testimonial-text">"Finally a gaming platform that works perfectly in Australia! The connection is smooth and there are always players online."</p>
+    <p class="testimonial-author">James M., Sydney</p>
+  </div>
+  
+  <div class="testimonial">
+    <p class="testimonial-text">"I was skeptical about free gaming platforms, but HelloPlays delivers premium quality games without any hidden costs."</p>
+    <p class="testimonial-author">Sarah L., Melbourne</p>
+  </div>
+  
+  <div class="testimonial">
+    <p class="testimonial-text">"Best way to connect with friends during lockdown. We play together every night!"</p>
+    <p class="testimonial-author">Michael T., Brisbane</p>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta-section" id="play-now">
+  <h2 class="final-cta-title">Ready to Start Gaming?</h2>
+  <p class="final-cta-subtitle">Join thousands of Australian players enjoying premium multiplayer gaming for free.</p>
+  
+  <a href="#play-now" class="primary-cta" onclick="showGameSelector()">
+    🚀 Select Your Game & Play Now
+  </a>
+  
+  <div class="trust-indicators" style="margin-top: 40px;">
+    <div class="trust-item">
+      <div style="color: #10B981; font-size: 20px;">✓</div>
+      <div class="trust-label">100% Free</div>
+    </div>
+    <div class="trust-item">
+      <div style="color: #10B981; font-size: 20px;">✓</div>
+      <div class="trust-label">No Sign Up</div>
+    </div>
+    <div class="trust-item">
+      <div style="color: #10B981; font-size: 20px;">✓</div>
+      <div class="trust-label">Instant Access</div>
+    </div>
+    <div class="trust-item">
+      <div style="color: #10B981; font-size: 20px;">✓</div>
+      <div class="trust-label">No Credit Card</div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="disclaimer">
+    HelloPlays is a free multiplayer gaming platform for Australian players. All games are browser-based and require no downloads. 
+    Please game responsibly. Not suitable for persons under 13 years of age.
+  </div>
+  
+  <div class="copyright">
+    © 2025 HelloPlays Gaming Platform | Made for Australian Gamers
+  </div>
+  <div style="margin-top: 20px;">
+    <a href="privacy-policy.html" style="color: #94A3B8; margin: 0 10px;">Privacy Policy</a> | 
+    <a href="terms-of-service.html" style="color: #94A3B8; margin: 0 10px;">Terms of Service</a>
+  </div>
+</footer>
+
+<!-- Load popup.js - THIS IS MISSING! -->
+<script src="assets/js/popup.js"></script>
+
+<!-- Game Selector Script -->
+<script>
+function showGameSelector() {
+  const games = [
+    { name: "Battle Royale Arena", category: "Action" },
+    { name: "Strategy Wars", category: "Strategy" },
+    { name: "Sports Championship", category: "Sports" },
+    { name: "Puzzle Challenge", category: "Puzzle" },
+    { name: "Racing Extreme", category: "Racing" },
+    { name: "Adventure Quest", category: "Adventure" }
+  ];
+  
+  let message = "🎮 Select Your Game Category:\n\n";
+  games.forEach((game, index) => {
+    message += `${index + 1}. ${game.name} (${game.category})\n`;
+  });
+  
+  message += "\nChoose a number (1-6) or type the category name:";
+  
+  const choice = prompt(message);
+  
+  if (choice) {
+    alert(`Perfect! Loading ${games[parseInt(choice) - 1]?.name || choice}...\n\nGet ready to play with Australian players!`);
+    
+    // Smooth scroll effect
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    
+    // Simulate game loading
+    setTimeout(() => {
+      document.querySelector('.hero-title').textContent = "Game Loaded! Ready to Play?";
+      document.querySelector('.hero-subtitle').textContent = "You're about to join a live match with Australian players. Good luck!";
+      document.querySelector('.primary-cta').textContent = "🎮 Enter Game Now";
+    }, 1000);
+  }
+}
+</script>
+
+</body>
+</html>
