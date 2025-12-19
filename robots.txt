@@ -3,7 +3,7 @@ Allow: /
 Disallow: /private/
 Disallow: /tmp/
 
-Sitemap: https://helloplaysgaming.com/sitemap.xml
+Sitemap: https://gamesverselive.netlify.app//sitemap.xml
 
 # Google Ads verification
 User-agent: AdsBot-Google
@@ -17,4 +17,5 @@ Crawl-delay: 1
 # Bingbot
 User-agent: bingbot
 Allow: /
+
 Crawl-delay: 2
